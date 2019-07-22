@@ -37,11 +37,11 @@ $npm start
 
 
 ## Wireframes
-
+### Home page
 ![Home page](./wireframes/1-Homepage.png)
-
+### Show page
 ![Show](./wireframes/2-ShowVideo.png)
-
+### Create / Update page
 ![Create / Update](./wireframes/3-AdminCrud.png)
 
 
