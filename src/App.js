@@ -12,6 +12,9 @@ import AlertDismissible from './auth/components/AlertDismissible'
 // import Videos
 import VideoIndex from './videos/VideoIndex'
 import VideoShow from './videos/VideoShow'
+import VideoCreate from './videos/VideoCreate'
+import VideoUpdate from './videos/VideoUpdate'
+
 
 
 class App extends Component {
@@ -56,11 +59,17 @@ class App extends Component {
           )} />
 
         </main>
+        <AuthenticatedRoute user={user} path='/create' render={() => (
+          <VideoCreate user={user} />
+        )} />
         <Route user={user} exact path='/videos' render={() => (
           <VideoIndex user={user} />
         )} />
         <Route user={user} exact path='/videos/:id' render={(props) => (
           <VideoShow user={user} videoId={props.match.params.id} />
+        )} />
+        <AuthenticatedRoute user={user} path='/videos/:id/update' render={() => (
+          <VideoUpdate user={user} />
         )} />
       </React.Fragment>
     )
