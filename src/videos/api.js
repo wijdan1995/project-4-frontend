@@ -8,3 +8,10 @@ export const index = () => {
     })
 }
 
+export const show = (videoId) => {
+    return Axios({
+        method: 'GET',
+        url: apiUrl + `/videos/${videoId}`
+    })
+}
+

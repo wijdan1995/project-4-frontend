@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { Card, CardDeck } from 'react-bootstrap'
 
 // const authenticatedOptions = (
-//     <React.Fragment>
+//    c
 //         <button onClick={() => this.destroy(video._id)}>Delete</button>
 //         <Link to={`/videos/${video._id}/edit`}><button>Edit</button></Link>
 //     </React.Fragment>
@@ -17,7 +17,9 @@ import { Card, CardDeck } from 'react-bootstrap'
 
 class VideoIndex extends Component {
     state = {
-        videos: []
+        videos: [],
+        categories: []
+
     }
     componentDidMount() {
         // const user = this.props.user
@@ -25,8 +27,18 @@ class VideoIndex extends Component {
         index()
             .then(res => {
                 const allVideos = res.data.videos
+
+                // for the Categories to use with filter later
+                let categories = []
+                res.data.videos.map((video) => categories.push(video.category))
+
+                // to get unique only
+
+                let uniqueCategories = Array.from(new Set(categories))
+
                 this.setState({
-                    videos: allVideos
+                    videos: allVideos,
+                    categories: uniqueCategories
                 })
             })
             .catch(error => console.log(error))
@@ -48,20 +60,18 @@ class VideoIndex extends Component {
     render() {
         return (
             <div>
+                <br />
                 <CardDeck>
                     {this.state.videos.map((video, index) => (
                         <div key={index} >
-                            {/* <Link to={`/videos/${video._id}`}><h3>{video.title}</h3></Link>
-                        <p>From: {video.source}, ({video.category})</p> */}
-
                             <Card style={{ width: '18rem' }}>
                                 <Card.Body>
                                     <Card.Title>{video.title}</Card.Title>
                                     <Card.Subtitle className="mb-2 text-muted"> {video.category}</Card.Subtitle>
-                                    <Card.Link ><Link to={`/videos/${video._id}`}>Go to the video</Link></Card.Link>
+                                    <Card.Text>{video.source}</Card.Text>
+                                    <Link to={`/videos/${video._id}`}>Go to the video</Link>
                                 </Card.Body>
                             </Card>
-
                         </div>
                     ))}
                 </CardDeck>
