@@ -15,6 +15,20 @@ export const signUp = credentials => {
   })
 }
 
+export const signUpAdmin = credentials => {
+  return axios({
+    method: 'POST',
+    url: apiUrl + '/sign-up-admin',
+    data: {
+      credentials: {
+        email: credentials.email,
+        password: credentials.password,
+        password_confirmation: credentials.passwordConfirmation
+      }
+    }
+  })
+}
+
 export const signIn = credentials => {
   return axios({
     url: apiUrl + '/sign-in',

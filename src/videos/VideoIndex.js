@@ -3,18 +3,6 @@ import { index, destroy } from './api'
 import { Link } from 'react-router-dom'
 import { Card, CardDeck, Container } from 'react-bootstrap'
 
-// const authenticatedOptions = (
-// <React.Fragment>
-//     <Link to={`/videos/${video._id}/update`}> Update</Link>
-//     <Link onClick={() => this.destroy(video._id)}> Delete</Link>
-//     </React.Fragment>
-// )
-// const alwaysOptions = (
-//     <React.Fragment>
-//         <Link to={`/videos/${video._id}`}><h1>{video.title}</h1></Link>
-//     </React.Fragment>
-// )
-
 class VideoIndex extends Component {
     state = {
         videos: [],
@@ -58,19 +46,27 @@ class VideoIndex extends Component {
     }
 
     render() {
+        let isAdmin;
+        if (this.props.user) {
+            isAdmin = this.props.user.admin
+        } else {
+
+
+        }
+
         return (
             <div>
                 <br />
                 <Container>
-                    <CardDeck>
+                    <CardDeck style={{ justifyContent: 'space-between' }}>
                         {this.state.videos.map((video, index) => (
                             <div key={index} >
-                                <Card style={{ width: '18rem' }}>
+                                <Card style={{ width: '20rem' }}>
                                     <Card.Body>
                                         <Card.Title>{video.title}</Card.Title>
                                         <Card.Subtitle className="mb-2 text-muted"> {video.category}</Card.Subtitle>
                                         <Card.Text>{video.source}</Card.Text>
-                                        <Link to={`/videos/${video._id}`}>Go to the video </Link> {this.props.user ? <React.Fragment>
+                                        <Link to={`/videos/${video._id}`}>Go to the video </Link> {isAdmin ? <React.Fragment>
                                             <Link to={`/videos/${video._id}/update`}> Update</Link>
                                             <Link to="" onClick={() => { if (window.confirm('Are you sure you wish to delete this item?')) this.destroy(video._id) }}> Delete</Link>
                                         </React.Fragment> : ''}

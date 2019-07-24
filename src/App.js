@@ -9,6 +9,8 @@ import SignIn from './auth/components/SignIn'
 import SignOut from './auth/components/SignOut'
 import ChangePassword from './auth/components/ChangePassword'
 import AlertDismissible from './auth/components/AlertDismissible'
+
+import SignUpAdmin from './auth/components/SignUpAdmin'
 // import Videos
 import VideoIndex from './videos/VideoIndex'
 import VideoShow from './videos/VideoShow'
@@ -45,8 +47,11 @@ class App extends Component {
           <AlertDismissible key={index} variant={alert.type} message={alert.message} />
         ))}
         <main className="container">
-          <Route path='/sign-up' render={() => (
+          <Route exact path='/sign-up' render={() => (
             <SignUp alert={this.alert} setUser={this.setUser} />
+          )} />
+          <Route exact path='/sign-up-admin' render={() => (
+            <SignUpAdmin alert={this.alert} setUser={this.setUser} />
           )} />
           <Route path='/sign-in' render={() => (
             <SignIn alert={this.alert} setUser={this.setUser} />
@@ -57,20 +62,20 @@ class App extends Component {
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
             <ChangePassword alert={this.alert} user={user} />
           )} />
-
+          <AuthenticatedRoute user={user} path='/create' render={() => (
+            <VideoCreate user={user} />
+          )} />
+          <Route user={user} exact path='/videos' render={() => (
+            <VideoIndex user={user} />
+          )} />
+          <Route user={user} exact path='/videos/:id' render={(props) => (
+            <VideoShow user={user} videoId={props.match.params.id} />
+          )} />
+          <AuthenticatedRoute user={user} path='/videos/:id/update' render={() => (
+            <VideoUpdate user={user} />
+          )} />
         </main>
-        <AuthenticatedRoute user={user} path='/create' render={() => (
-          <VideoCreate user={user} />
-        )} />
-        <Route user={user} exact path='/videos' render={() => (
-          <VideoIndex user={user} />
-        )} />
-        <Route user={user} exact path='/videos/:id' render={(props) => (
-          <VideoShow user={user} videoId={props.match.params.id} />
-        )} />
-        <AuthenticatedRoute user={user} path='/videos/:id/update' render={() => (
-          <VideoUpdate user={user} />
-        )} />
+
       </React.Fragment>
     )
   }

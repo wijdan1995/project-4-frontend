@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { show } from './api'
 import './VideoShow.css'
 import { Badge, Container } from 'react-bootstrap'
-
+import CommentIndex from '../comments/CommentIndex'
 class VideoShow extends Component {
     state = {
         video: {}
@@ -19,6 +19,7 @@ class VideoShow extends Component {
             .catch(error => console.log(error))
     }
     render() {
+
         return (
             <Container>
                 <div
@@ -34,6 +35,11 @@ class VideoShow extends Component {
                 </div>
                 <div className="content"></div>
                 <p>{this.state.video.source} <Badge variant="info">{this.state.video.category}</Badge></p>
+                <div>
+                    <h3>Comments:</h3>
+                    <CommentIndex user={this.props.user} videoId={this.props.videoId} />
+
+                </div>
 
             </Container>
         );
