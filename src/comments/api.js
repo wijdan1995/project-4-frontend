@@ -8,10 +8,10 @@ export const show = (videoId) => {
     })
 }
 
-export const create = (user, newComment, videoId) => {
+export const create = (user, newComment) => {
     return Axios({
         method: 'POST',
-        url: apiUrl + `/videos/${videoId}/comments`,
+        url: apiUrl + `/comments`,
         headers: {
             'Authorization': `Bearer ${user.token}`
         },

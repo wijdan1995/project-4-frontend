@@ -16,6 +16,8 @@ import VideoIndex from './videos/VideoIndex'
 import VideoShow from './videos/VideoShow'
 import VideoCreate from './videos/VideoCreate'
 import VideoUpdate from './videos/VideoUpdate'
+//import list
+import ListIndex from './list/ListIndex'
 
 
 
@@ -73,6 +75,9 @@ class App extends Component {
           )} />
           <AuthenticatedRoute user={user} path='/videos/:id/update' render={() => (
             <VideoUpdate user={user} />
+          )} />
+          <AuthenticatedRoute user={user} exact path='/mylist' render={() => (
+            <ListIndex user={user} />
           )} />
         </main>
 
