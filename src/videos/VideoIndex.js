@@ -68,7 +68,7 @@ class VideoIndex extends Component {
                                         <Card.Text>{video.source}</Card.Text>
                                         <Link to={`/videos/${video._id}`}>Go to the video </Link> {isAdmin ? <React.Fragment>
                                             <Link to={`/videos/${video._id}/update`}> Update</Link>
-                                            <Link to="" onClick={() => { if (window.confirm('Are you sure you wish to delete this item?')) this.destroy(video._id) }}> Delete</Link>
+                                            <Link to="/videos/" onClick={() => { if (window.confirm('Are you sure you wish to delete this item?')) this.destroy(video._id) }}> Delete</Link>
                                         </React.Fragment> : ''}
                                     </Card.Body>
                                 </Card>

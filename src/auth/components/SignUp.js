@@ -5,13 +5,14 @@ import { signUp, signIn } from '../api'
 import messages from '../messages'
 
 class SignUp extends Component {
-  constructor () {
+  constructor() {
     super()
 
     this.state = {
       email: '',
       password: '',
-      passwordConfirmation: ''
+      passwordConfirmation: '',
+      name: ''
     }
   }
 
@@ -31,18 +32,27 @@ class SignUp extends Component {
       .then(() => history.push('/'))
       .catch(error => {
         console.error(error)
-        this.setState({ email: '', password: '', passwordConfirmation: '' })
+        this.setState({ email: '', password: '', passwordConfirmation: '', name: '' })
         alert(messages.signUpFailure, 'danger')
       })
   }
 
-  render () {
-    const { email, password, passwordConfirmation } = this.state
+  render() {
+    const { email, password, passwordConfirmation, name } = this.state
 
     return (
       <form className='auth-form' onSubmit={this.onSignUp}>
         <h3>Sign Up</h3>
 
+        <label htmlFor="name">User name</label>
+        <input
+          required
+          name="name"
+          value={name}
+          type="name"
+          placeholder="User name"
+          onChange={this.handleChange}
+        />
         <label htmlFor="email">Email</label>
         <input
           required

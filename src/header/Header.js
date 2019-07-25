@@ -40,14 +40,14 @@ class Header extends Component {
 
 
     }
-    
+
 
     return (<header className="main-header">
 
       <h1>Learn Coding</h1>
 
       <nav>
-        {user && <span>Welcome, {user.email}</span>}
+        {user && <span>Welcome, {user.name}</span>}
         {alwaysOptions}
         {isAdmin ? authenticatedOptionsAdmin : ''}
         {user ? authenticatedOptions : unauthenticatedOptions}

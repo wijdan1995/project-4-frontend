@@ -11,7 +11,8 @@ class SignUpAdmin extends Component {
         this.state = {
             email: '',
             password: '',
-            passwordConfirmation: ''
+            passwordConfirmation: '',
+            name: ''
         }
     }
 
@@ -31,18 +32,27 @@ class SignUpAdmin extends Component {
             .then(() => history.push('/'))
             .catch(error => {
                 console.error(error)
-                this.setState({ email: '', password: '', passwordConfirmation: '' })
+                this.setState({ email: '', password: '', passwordConfirmation: '', name: '' })
                 alert(messages.signUpFailure, 'danger')
             })
     }
 
     render() {
-        const { email, password, passwordConfirmation } = this.state
+        const { email, password, passwordConfirmation, name } = this.state
 
         return (
             <form className='auth-form' onSubmit={this.onSignUpAdmin}>
                 <h3>Sign Up As An Admin</h3>
 
+                <label htmlFor="name">Admin name</label>
+                <input
+                    required
+                    name="name"
+                    value={name}
+                    type="name"
+                    placeholder="Admin name"
+                    onChange={this.handleChange}
+                />
                 <label htmlFor="email">Email</label>
                 <input
                     required

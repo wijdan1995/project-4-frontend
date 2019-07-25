@@ -20,3 +20,13 @@ export const create = (user, newComment, videoId) => {
         }
     })
 }
+
+export const destroy = (user, commentId) => {
+    return Axios({
+        method: 'DELETE',
+        url: apiUrl + `/comments/${commentId}`,
+        headers: {
+            'Authorization': `Bearer ${user.token}`
+        }
+    })
+}

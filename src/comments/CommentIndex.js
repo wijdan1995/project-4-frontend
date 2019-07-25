@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import { show } from './api'
+import { show, destroy } from './api'
 import CommentCreate from './CommentCreate'
+import { Card, Button } from 'react-bootstrap'
 
 class CommentIndex extends Component {
     state = {
         comments: []
     }
     fetchComments = () => {
-        const user = this.props.user
         const videoId = this.props.videoId
 
         show(videoId)
@@ -24,14 +24,39 @@ class CommentIndex extends Component {
     componentDidMount() {
         this.fetchComments()
     }
+
+    destroy = (commentId) => {
+        const user = this.props.user
+        destroy(user, commentId)
+            .then(() => alert('Deleted'))
+            .then(() => {
+                const newComments = this.state.comments.filter((comment) => comment._id !== commentId)
+                this.setState({
+                    comments: newComments
+                })
+            })
+            .catch(error => console.log(error))
+    }
     render() {
+        let UserName;
+        if (this.props.user) {
+            UserName = this.props.user._id
+        } else {
+
+
+        }
         return (
             <div>
-                <br />
+
                 {this.state.comments.map((comment, index) => (
-                    <p key={index} >
-                        • {comment.content}
-                    </p>
+                    <React.Fragment>
+                        <p>{comment.userName}</p>
+                        <Card>
+                            <Card.Body key={index}>  {comment.content}</Card.Body>
+                        </Card>
+                        {comment.owner === UserName ? <React.Fragment> <br /> <Button variant="outline-secondary" size="sm" onClick={() => { if (window.confirm('Are you sure you wish to delete this comment?')) this.destroy(comment._id) }}>Delete</Button> <br /></React.Fragment> : ''}
+                        <br />
+                    </React.Fragment>
                 ))}
                 <br />
                 {this.props.user ? <CommentCreate fetchComments={this.fetchComments} user={this.props.user} videoId={this.props.videoId} /> : ""}

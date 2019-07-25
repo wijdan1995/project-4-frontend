@@ -30,6 +30,12 @@ class VideoCreate extends Component {
         create(user, newComment, videoId)
             .then(() => alert('Comment Added'))
             .then(() => this.props.fetchComments())
+            .then(this.setState({
+                dataForm: {
+                    content: '',
+                    videoId: this.props.videoId
+                }
+            }))
             .catch((error) => console.log(error))
 
     }
@@ -37,6 +43,7 @@ class VideoCreate extends Component {
     render() {
         return (
             <Container>
+                <hr />
                 <br />
                 <Form onSubmit={this.handleSubmit}>
                     <Form.Group >

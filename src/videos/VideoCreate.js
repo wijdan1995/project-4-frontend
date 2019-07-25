@@ -33,7 +33,17 @@ class VideoCreate extends Component {
             .then(() => alert('Created'))
             // to redirect you to the index
             // .then(() => this.props.history.push('/videos'))
+            .then(this.setState({
+                dataForm: {
+                    title: '',
+                    source: '',
+                    videoId: '',
+                    category: '',
+                    description: ''
+                }
+            }))
             .catch((error) => console.log(error))
+
     }
 
     render() {
