@@ -36,12 +36,16 @@ export const update = (user, videoId) => {
 }
 
 
-export const destroy = (user, listId) => {
+export const destroy = (user, newArray) => {
+    console.log(user)
     return Axios({
-        method: 'DELETE',
-        url: apiUrl + `/mylist/${listId}`,
+        method: 'PATCH',
+        url: apiUrl + `/mylist/${user.lists[0]._id}`,
         headers: {
             'Authorization': `Bearer ${user.token}`
+        },
+        data: {
+            newArray: newArray
         }
     })
 }
