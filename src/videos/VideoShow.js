@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { show } from './api'
 import './VideoShow.css'
-import { Badge, Container, Button } from 'react-bootstrap'
+import { Badge, Container } from 'react-bootstrap'
 import CommentIndex from '../comments/CommentIndex'
+import ListCreate from '../list/ListCreate';
 class VideoShow extends Component {
     state = {
         video: {}
@@ -36,7 +37,7 @@ class VideoShow extends Component {
                 <div className="content"></div>
                 <p>{this.state.video.source} <Badge variant="info">{this.state.video.category}</Badge></p>
                 <div>
-                    {/* {user ? <Button >Add to list</Button>} */}
+                    {this.props.user ? <ListCreate user={this.props.user} videoId={this.state.video._id} /> : ''}
                     <h3>Comments:</h3>
                     <CommentIndex user={this.props.user} videoId={this.props.videoId} />
 

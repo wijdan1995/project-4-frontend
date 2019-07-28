@@ -13,7 +13,7 @@ class CommentIndex extends Component {
         show(videoId)
             .then(res => {
                 const comments = res.data.comments
-                const videoComments = comments.filter((comments) => comments.videoId == videoId)
+                const videoComments = comments.filter((comments) => comments.videoId === videoId)
                 console.log(res.data)
                 this.setState({
                     comments: videoComments
