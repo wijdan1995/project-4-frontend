@@ -4,6 +4,8 @@ import { withRouter } from 'react-router-dom'
 import { signUpAdmin, signIn } from '../api'
 import messages from '../messages'
 
+// import { Form, Button } from 'react-bootstrap'
+
 class SignUpAdmin extends Component {
     constructor() {
         super()
@@ -41,6 +43,54 @@ class SignUpAdmin extends Component {
         const { email, password, passwordConfirmation, name } = this.state
 
         return (
+            //         <Form className='auth-form' onSubmit={this.onSignIn}>
+            //             <h3>Sign Up As An Admin</h3>
+            //             <Form.Group >
+            //                 <Form.Label>Admin Name</Form.Label>
+            //                 <Form.Control required
+            //                     name="name"
+            //                     value={name}
+            //                     type="name"
+            //                     placeholder="Admin Name"
+            //                     onChange={this.handleChange} />
+            //             </Form.Group>
+            //             <Form.Group >
+            //                 <Form.Label>Email address</Form.Label>
+            //                 <Form.Control required
+            //                     type="email"
+            //                     name="email"
+            //                     value={email}
+            //                     placeholder="Email address"
+            //                     onChange={this.handleChange} />
+            //                 <Form.Text className="text-muted">
+            //                     We'll never share your email with anyone else.
+            //     </Form.Text>
+            //             </Form.Group>
+
+            //             <Form.Group controlId="formBasicPassword">
+            //                 <Form.Label>Password</Form.Label>
+            //                 <Form.Control required
+            //                     name="password"
+            //                     value={password}
+            //                     type="password"
+            //                     placeholder="Password"
+            //                     onChange={this.handleChange} />
+            //             </Form.Group>
+            //             <Form.Group controlId="formBasicPassword">
+            //                 <Form.Label>Confirm Password</Form.Label>
+            //                 <Form.Control required
+            //                     name="passwordConfirmation"
+            //                     value={passwordConfirmation}
+            //                     type="password"
+            //                     placeholder="Confirm Password"
+            //                     onChange={this.handleChange} />
+            //             </Form.Group>
+
+            //             <Button variant="primary" type="submit">
+            //                 Sign Up
+            //   </Button>
+            //             <br />
+            //         </Form>
             <form className='auth-form' onSubmit={this.onSignUpAdmin}>
                 <h3>Sign Up As An Admin</h3>
 
