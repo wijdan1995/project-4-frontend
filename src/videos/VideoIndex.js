@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { index, destroy } from './api'
 import { Link } from 'react-router-dom'
-import { Card, CardDeck, Container } from 'react-bootstrap'
+import { Card, CardDeck, Container, Form, Badge } from 'react-bootstrap'
+import './VideoIndex.css'
 
 class VideoIndex extends Component {
     state = {
@@ -9,9 +10,7 @@ class VideoIndex extends Component {
         categories: []
 
     }
-    componentDidMount() {
-        // const user = this.props.user
-        // index(user)
+    fetchVideos = () => {
         index()
             .then(res => {
                 const allVideos = res.data.videos
@@ -32,6 +31,11 @@ class VideoIndex extends Component {
             .catch(error => console.log(error))
     }
 
+    componentDidMount() {
+        this.fetchVideos()
+    }
+
+    // for delete video
     destroy = (videoId) => {
         const user = this.props.user
         destroy(user, videoId)
@@ -45,6 +49,28 @@ class VideoIndex extends Component {
             .catch(error => console.log(error))
     }
 
+    // to filter videos
+    handleOnClick = event => {
+        const categorySelected = event.target.value
+
+        index()
+            .then(res => {
+                const allVideos = res.data.videos
+
+                this.setState({
+                    videos: allVideos
+                })
+
+            })
+            .then(() => {
+                const filterdVideo = this.state.videos.filter(video => video.category === categorySelected)
+                console.log(filterdVideo)
+                this.setState({
+                    videos: filterdVideo
+                })
+            })
+            .catch(error => console.log(error))
+    }
     render() {
         let isAdmin;
         if (this.props.user) {
@@ -57,14 +83,26 @@ class VideoIndex extends Component {
         return (
             <div>
                 <br />
+                <Form className='form'>
+                    <Form.Group >
+                        <Form.Control size="sm" as="select">
+                            <option>- Filter by category -</option>
+                            <option onClick={this.fetchVideos}>- All </option>
+                            {this.state.categories.map((cat, index) =>
+                                <option key={index} onClick={this.handleOnClick} value={cat}>- {cat}
+                                </option>)}
+                        </Form.Control>
+                    </Form.Group>
+                </Form>
+                <br />
                 <Container>
-                    <CardDeck style={{ justifyContent: 'space-between' }}>
+                    <CardDeck className='card-deck'>
                         {this.state.videos.map((video, index) => (
                             <div key={index} >
-                                <Card style={{ width: '20rem' }}>
+                                <Card className="cards">
                                     <Card.Body>
                                         <Card.Title>{video.title}</Card.Title>
-                                        <Card.Subtitle className="mb-2 text-muted"> {video.category}</Card.Subtitle>
+                                        <Card.Subtitle className="mb-2 text-muted"> <Badge variant="info">{video.category}</Badge></Card.Subtitle>
                                         <Card.Text>{video.source}</Card.Text>
                                         <Link to={`/videos/${video._id}`}>Go to the video </Link> {isAdmin ? <React.Fragment>
                                             <Link to={`/videos/${video._id}/update`}> Update</Link>

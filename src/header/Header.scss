@@ -6,11 +6,19 @@ $charcoal: #bbb;
   display: flex;
   height: 100px;
   padding: 0 20px;
-
+  color: whitesmoke;
+  // color: #000e10;
+  background-color: #088DA5;
+  h1{
+    text-shadow: 1px 1px #000e10;
+  }
   a,
   span {
     font-size: 1.2em;
     margin: 0 15px;
+    text-decoration: none;
+    color: #000e10;
+    // color: whitesmoke;
   }
 }
 
@@ -19,6 +27,7 @@ $charcoal: #bbb;
   display: flex;
   flex-grow: 1;
   justify-content: flex-end;
+
 }
 
 @media (max-width: 600px) {
@@ -41,7 +50,7 @@ $charcoal: #bbb;
 
     a,
     span {
-      border: 1px solid $charcoal;
+      // border: 1px solid $charcoal;
       margin-bottom: 5px;
       text-align: center;
       width: 80%;

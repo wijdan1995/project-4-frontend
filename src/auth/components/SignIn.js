@@ -5,7 +5,7 @@ import { signIn } from '../api'
 import messages from '../messages'
 
 class SignIn extends Component {
-  constructor () {
+  constructor() {
     super()
 
     this.state = {
@@ -34,7 +34,7 @@ class SignIn extends Component {
       })
   }
 
-  render () {
+  render() {
     const { email, password } = this.state
 
     return (

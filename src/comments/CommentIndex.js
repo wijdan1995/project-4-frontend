@@ -51,7 +51,7 @@ class CommentIndex extends Component {
                 {this.state.comments.map((comment, index) => (
                     <React.Fragment>
                         <p>{comment.userName}</p>
-                        <Card>
+                        <Card className="comments">
                             <Card.Body key={index}>  {comment.content}</Card.Body>
                         </Card>
                         {comment.owner === UserName ? <React.Fragment> <br /> <Button variant="outline-secondary" size="sm" onClick={() => { if (window.confirm('Are you sure you wish to delete this comment?')) this.destroy(comment._id) }}>Delete</Button> <br /></React.Fragment> : ''}

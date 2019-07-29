@@ -1,0 +1,36 @@
+.form {
+    width:15rem;
+}
+.cards {
+    width:21rem;
+    /* background-color:#fcfcfc; */
+}
+.cards:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  }
+.card-deck {
+    justify-content:flex-start
+}
+
+@media screen and (max-width: 1200px) {
+    .cards {
+      width: 25rem;
+      display: block;
+      margin-bottom: 20px;
+    }
+    .card-deck {
+        justify-content: space-between;
+    }
+    .form {
+        width:100%;
+    }
+  }
+
+  @media screen and (max-width: 1000px) {
+    .cards {
+        width: 100%;
+        display: block;
+        margin-bottom: 20px;
+      }
+
+  }

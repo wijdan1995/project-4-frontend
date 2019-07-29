@@ -42,12 +42,12 @@ class ListIndex extends Component {
                 <h2>My List</h2>
                 <br />
                 <Container>
-                    <CardDeck style={{ justifyContent: 'space-between' }}>
+                    <CardDeck className='card-deck'>
                         {this.state.lists.map((list, index) => (
                             <React.Fragment key={index}>
                                 {list.videos.map((video, index) =>
                                     <div key={index}>
-                                        <Card style={{ width: '20rem' }}>
+                                        <Card className="cards">
                                             <Card.Body>
                                                 <Card.Title>{video.title}</Card.Title>
                                                 <Card.Subtitle className="mb-2 text-muted"> {video.category}</Card.Subtitle>
