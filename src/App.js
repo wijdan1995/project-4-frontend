@@ -18,6 +18,8 @@ import VideoCreate from './videos/VideoCreate'
 import VideoUpdate from './videos/VideoUpdate'
 //import list
 import ListIndex from './list/ListIndex'
+// home
+import Home from './home/Home'
 
 
 
@@ -57,6 +59,9 @@ class App extends Component {
           )} />
           <Route path='/sign-in' render={() => (
             <SignIn alert={this.alert} setUser={this.setUser} />
+          )} />
+          <Route exact path='/' render={() => (
+            <Home />
           )} />
           <AuthenticatedRoute user={user} path='/sign-out' render={() => (
             <SignOut alert={this.alert} clearUser={this.clearUser} user={user} />

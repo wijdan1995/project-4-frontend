@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom'
 import { signIn } from '../api'
 import messages from '../messages'
 
-// import { Form, Button } from 'react-bootstrap'
+import { Form, Button } from 'react-bootstrap'
 
 class SignIn extends Component {
   constructor() {
@@ -40,59 +40,56 @@ class SignIn extends Component {
     const { email, password } = this.state
 
     return (
-      // <Form className='auth-form' onSubmit={this.onSignIn}>
-      //   <h3>Sign In</h3>
-      //   <Form.Group >
-      //     <Form.Label>Email address</Form.Label>
-      //     <Form.Control required
-      //       type="email"
-      //       name="email"
-      //       value={email}
-      //       placeholder="Email address"
-      //       onChange={this.handleChange} />
-      //     <Form.Text className="text-muted">
-      //       We'll never share your email with anyone else.
-      //     </Form.Text>
-      //   </Form.Group>
-
-      //   <Form.Group controlId="formBasicPassword">
-      //     <Form.Label>Password</Form.Label>
-      //     <Form.Control required
-      //       name="password"
-      //       value={password}
-      //       type="password"
-      //       placeholder="Password"
-      //       onChange={this.handleChange} />
-      //   </Form.Group>
-
-      //   <Button variant="primary" type="submit">
-      //     Sign In
-      //   </Button>
-      //   <br />
-      // </Form>
-
-      <form className='auth-form' onSubmit={this.onSignIn}>
+      <Form className='auth-form' onSubmit={this.onSignIn}>
         <h3>Sign In</h3>
-        <label htmlFor="email">Email</label>
-        <input
-          required
-          type="email"
-          name="email"
-          value={email}
-          placeholder="Email"
-          onChange={this.handleChange}
-        />
-        <label htmlFor="password">Password</label>
-        <input
-          required
-          name="password"
-          value={password}
-          type="password"
-          placeholder="Password"
-          onChange={this.handleChange}
-        />
-        <button type="submit">Sign In</button>
-      </form>
+        <Form.Group >
+          <Form.Label>Email address</Form.Label>
+          <Form.Control required
+            type="email"
+            name="email"
+            value={email}
+            placeholder="Email address"
+            onChange={this.handleChange} />
+        </Form.Group>
+
+        <Form.Group controlId="formBasicPassword">
+          <Form.Label>Password</Form.Label>
+          <Form.Control required
+            name="password"
+            value={password}
+            type="password"
+            placeholder="Password"
+            onChange={this.handleChange} />
+        </Form.Group>
+
+        <Button variant="primary" type="submit">
+          Sign In
+        </Button>
+        <br />
+      </Form>
+
+      // <form className='auth-form' onSubmit={this.onSignIn}>
+      //   <h3>Sign In</h3>
+      //   <label htmlFor="email">Email</label>
+      //   <input
+      //     required
+      //     type="email"
+      //     name="email"
+      //     value={email}
+      //     placeholder="Email"
+      //     onChange={this.handleChange}
+      //   />
+      //   <label htmlFor="password">Password</label>
+      //   <input
+      //     required
+      //     name="password"
+      //     value={password}
+      //     type="password"
+      //     placeholder="Password"
+      //     onChange={this.handleChange}
+      //   />
+      //   <button type="submit">Sign In</button>
+      // </form>
     )
   }
 }

@@ -5,10 +5,10 @@ export const signUp = credentials => {
   return axios({
     method: 'POST',
     url: apiUrl + '/sign-up',
-    headers: {
-      'Access-Control-Allow-Origin': '*',
-    },
-    crossdomain: true,
+    // headers: {
+    //   'Access-Control-Allow-Origin': '*',
+    // },
+    // crossdomain: true,
     data: {
       credentials: {
         email: credentials.email,
