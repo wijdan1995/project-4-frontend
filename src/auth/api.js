@@ -8,6 +8,7 @@ export const signUp = credentials => {
     headers: {
       'Access-Control-Allow-Origin': '*',
     },
+    crossdomain: true,
     data: {
       credentials: {
         email: credentials.email,
