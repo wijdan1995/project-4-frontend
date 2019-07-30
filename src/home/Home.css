@@ -14,8 +14,8 @@
     margin-top: 5%
 }
 
-/* @media (max-width: 600px) {
+@media (max-width: 600px) {
     .home-card {
         width: 100%;
     }
-  } */
+  }
