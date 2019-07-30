@@ -5,7 +5,7 @@
 }
 .home-card {
     /* display: inline; */
-    width: 50vw;
+    width: 80%;
     /* height: 20rem; */
     padding: 1.5rem;
     
@@ -13,3 +13,9 @@
 .home-button {
     margin-top: 5%
 }
+
+/* @media (max-width: 600px) {
+    .home-card {
+        width: 100%;
+    }
+  } */
