@@ -50,26 +50,34 @@ class VideoIndex extends Component {
     }
 
     // to filter videos
-    handleOnClick = event => {
+    handleOnChange = event => {
         const categorySelected = event.target.value
 
-        index()
-            .then(res => {
-                const allVideos = res.data.videos
+        if (categorySelected === "all") {
+            this.fetchVideos()
+        } else {
+            console.log(categorySelected)
 
-                this.setState({
-                    videos: allVideos
-                })
+            index()
+                .then(res => {
+                    const allVideos = res.data.videos
 
-            })
-            .then(() => {
-                const filterdVideo = this.state.videos.filter(video => video.category === categorySelected)
-                console.log(filterdVideo)
-                this.setState({
-                    videos: filterdVideo
+                    this.setState({
+                        videos: allVideos
+                    })
+
                 })
-            })
-            .catch(error => console.log(error))
+                .then(() => {
+                    const filterdVideo = this.state.videos.filter(video => video.category === categorySelected)
+                    console.log(filterdVideo)
+                    this.setState({
+                        videos: filterdVideo
+                    })
+                })
+                .catch(error => console.log(error))
+        }
+
+
     }
     render() {
         let isAdmin;
@@ -85,11 +93,18 @@ class VideoIndex extends Component {
                 <br />
                 <Form className='form'>
                     <Form.Group >
-                        <Form.Control size="sm" as="select">
+                        {/* <Form.Control size="sm" as="select">
                             <option>- Filter by category -</option>
                             <option onClick={this.fetchVideos}>- All </option>
                             {this.state.categories.map((cat, index) =>
                                 <option key={index} onClick={this.handleOnClick} value={cat}>- {cat}
+                                </option>)}
+                        </Form.Control> */}
+                        <Form.Control onChange={this.handleOnChange} size="sm" as="select">
+                            <option value='all'>- Filter by category -</option>
+                            <option value='all'>- All </option>
+                            {this.state.categories.map((cat, index) =>
+                                <option key={index} value={cat}>- {cat}
                                 </option>)}
                         </Form.Control>
                     </Form.Group>

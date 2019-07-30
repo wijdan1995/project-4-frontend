@@ -50,7 +50,7 @@ class VideoCreate extends Component {
                         <Form.Label>Comment</Form.Label>
                         <Form.Control as="textarea" rows="2" onChange={this.handleChange} type="text" name="content" value={this.state.dataForm.content} />
                     </Form.Group>
-                    <Button type="submit">Add Comment</Button>
+                    <Button variant="dark" type="submit">Add Comment</Button>
                 </Form>
                 <br />
             </Container>

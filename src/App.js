@@ -20,6 +20,8 @@ import VideoUpdate from './videos/VideoUpdate'
 import ListIndex from './list/ListIndex'
 // home
 import Home from './home/Home'
+// footer
+// import Footer from './footer/Footer'
 
 
 
@@ -85,7 +87,7 @@ class App extends Component {
             <ListIndex user={user} />
           )} />
         </main>
-
+        {/* <Footer /> */}
       </React.Fragment>
     )
   }

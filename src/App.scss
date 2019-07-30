@@ -15,6 +15,7 @@ $charcoal: #ccc;
   top: 15%;
   width: 50%;
   z-index: 1;
+  
 }
 
 .flash-success {
@@ -33,22 +34,22 @@ $charcoal: #ccc;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 15% auto 0;
+  margin: 5% auto 5%;
   max-width: 600px;
+  
 
   h3,
   input {
     margin-bottom: 5%;
   }
 
-  button {
-    align-self: flex-end;
-    max-width: 200px;
-  }
+  // button {
+  //   align-self: flex-end;
+  //   max-width: 200px;
+  // }
 }
 
 body{
-  font-family: 'DM Serif Text', serif; 
- /* background-color: black; */
+ font-family: 'DM Serif Text', serif; 
  background-image:url(./imgs/bg.png);
 }

@@ -21,7 +21,7 @@ class ListCreate extends Component {
     }
     render() {
         return (
-            <Button onClick={this.addToList}>Add to list</Button>
+            <Button variant="dark" onClick={this.addToList}>Add to list</Button>
         );
     }
 }

@@ -25,7 +25,7 @@ const unauthenticatedOptions = (
 
 const alwaysOptions = (
   <React.Fragment>
-    <Link to="/">Home</Link>
+    {/* <Link to="/">Home</Link> */}
     <Link to="/videos">Videos</Link>
   </React.Fragment>
 )
@@ -44,7 +44,8 @@ class Header extends Component {
 
     return (<header className="main-header">
 
-      <h1>Learn Coding</h1>
+      <Link to='/' style={{ textDecoration: 'none',
+    color: "whitesmoke" }}><h1>Learn Coding</h1></Link>
 
       <nav>
         {user && <span>Welcome, {user.name}</span>}

@@ -62,7 +62,7 @@ class SignIn extends Component {
             onChange={this.handleChange} />
         </Form.Group>
 
-        <Button variant="primary" type="submit">
+        <Button variant="dark" type="submit">
           Sign In
         </Button>
         <br />

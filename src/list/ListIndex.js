@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { index, destroy } from './api'
 import { Link } from 'react-router-dom'
-import { Card, CardDeck, Container } from 'react-bootstrap'
+import { Card, CardDeck, Container, Badge } from 'react-bootstrap'
 
 class ListIndex extends Component {
     state = {
@@ -50,7 +50,7 @@ class ListIndex extends Component {
                                         <Card className="cards">
                                             <Card.Body>
                                                 <Card.Title>{video.title}</Card.Title>
-                                                <Card.Subtitle className="mb-2 text-muted"> {video.category}</Card.Subtitle>
+                                                <Card.Subtitle className="mb-2 text-muted"> <Badge variant="info">{video.category}</Badge></Card.Subtitle>
                                                 <Card.Text>{video._idsource}</Card.Text>
                                                 <Link to={`/videos/${video._id}`}>Go to the video </Link>
                                                 <Link to='/mylist/' onClick={() => { if (window.confirm('Are you sure you wish to delete this item?')) this.destroy(video._id) }}> Delete</Link>
