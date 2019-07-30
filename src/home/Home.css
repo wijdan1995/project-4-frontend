@@ -15,6 +15,9 @@
 }
 
 @media (max-width: 600px) {
+    .home-container {
+        margin-top: 15vh;
+    }
     .home-card {
         width: 100%;
     }
