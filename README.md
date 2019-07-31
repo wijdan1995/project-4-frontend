@@ -31,6 +31,7 @@ $npm start
 
 **Version 4**
 * Filter the video by category.
+* Fully responsive design
 
 
 
