@@ -67,29 +67,6 @@ class SignIn extends Component {
         </Button>
         <br />
       </Form>
-
-      // <form className='auth-form' onSubmit={this.onSignIn}>
-      //   <h3>Sign In</h3>
-      //   <label htmlFor="email">Email</label>
-      //   <input
-      //     required
-      //     type="email"
-      //     name="email"
-      //     value={email}
-      //     placeholder="Email"
-      //     onChange={this.handleChange}
-      //   />
-      //   <label htmlFor="password">Password</label>
-      //   <input
-      //     required
-      //     name="password"
-      //     value={password}
-      //     type="password"
-      //     placeholder="Password"
-      //     onChange={this.handleChange}
-      //   />
-      //   <button type="submit">Sign In</button>
-      // </form>
     )
   }
 }

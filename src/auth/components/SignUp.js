@@ -76,7 +76,8 @@ class SignUp extends Component {
             placeholder="Password"
             onChange={this.handleChange} />
         </Form.Group>
-        <Form.Group controlId="formBasicPassword">
+
+        <Form.Group controlId="formBasicPassword1">
           <Form.Label>Confirm Password</Form.Label>
           <Form.Control required
             name="passwordConfirmation"
@@ -89,50 +90,8 @@ class SignUp extends Component {
         <Button variant="dark" type="submit">
           Sign Up
       </Button>
+        <br />
       </Form>
-
-
-      // <form className='auth-form' onSubmit={this.onSignUp}>
-      //   <h3>Sign Up</h3>
-
-      //   <label htmlFor="name">User name</label>
-      //   <input
-      //     required
-      //     name="name"
-      //     value={name}
-      //     type="name"
-      //     placeholder="User name"
-      //     onChange={this.handleChange}
-      //   />
-      //   <label htmlFor="email">Email</label>
-      //   <input
-      //     required
-      //     name="email"
-      //     value={email}
-      //     type="email"
-      //     placeholder="Email"
-      //     onChange={this.handleChange}
-      //   />
-      //   <label htmlFor="password">Password</label>
-      //   <input
-      //     required
-      //     name="password"
-      //     value={password}
-      //     type="password"
-      //     placeholder="Password"
-      //     onChange={this.handleChange}
-      //   />
-      //   <label htmlFor="passwordConfirmation">Confirm Password</label>
-      //   <input
-      //     required
-      //     name="passwordConfirmation"
-      //     value={passwordConfirmation}
-      //     type="password"
-      //     placeholder="Confirm Password"
-      //     onChange={this.handleChange}
-      //   />
-      //   <button type="submit">Sign Up</button>
-      // </form>
     )
   }
 }

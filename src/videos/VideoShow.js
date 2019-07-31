@@ -41,6 +41,7 @@ class VideoShow extends Component {
                 <div>
                     {this.props.user ? <ListCreate user={this.props.user} videoId={this.state.video._id} /> : ''}
                     <br />
+                    <br />
                     <h3>Comments</h3>
                     <CommentIndex user={this.props.user} videoId={this.props.videoId} />
 

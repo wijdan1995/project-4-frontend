@@ -13,7 +13,7 @@ class Home extends Component {
 
                     <Card.Text>This web application will gather the most valuable free programming video tutorials to get you started in the programming world .</Card.Text>
                     <Link to="/videos" >
-                        <Button block size="sm" className="home-button" variant="dark" >Go To Videos</Button>
+                        <Button block className="home-button" variant="dark" >Go To Videos</Button>
                     </Link>
 
                 </Card>

@@ -52,29 +52,21 @@ class VideoCreate extends Component {
                 <br />
                 <Form onSubmit={this.handleSubmit}>
                     <Form.Row>
-                        <Form.Group >
-                            <Col>
-                                <Form.Label>Title</Form.Label>
-                                <Form.Control onChange={this.handleChange} type="text" name="title" value={this.state.dataForm.title} />
-                            </Col>
+                        <Form.Group as={Col}>
+                            <Form.Label>Title</Form.Label>
+                            <Form.Control onChange={this.handleChange} type="text" name="title" value={this.state.dataForm.title} />
                         </Form.Group>
-                        <Form.Group >
-                            <Col>
-                                <Form.Label>Source</Form.Label>
-                                <Form.Control onChange={this.handleChange} type="text" name="source" value={this.state.dataForm.source} />
-                            </Col>
+                        <Form.Group as={Col}>
+                            <Form.Label>Source</Form.Label>
+                            <Form.Control onChange={this.handleChange} type="text" name="source" value={this.state.dataForm.source} />
                         </Form.Group>
-                        <Form.Group >
-                            <Col>
-                                <Form.Label>Video Id</Form.Label>
-                                <Form.Control onChange={this.handleChange} type="text" name="videoId" value={this.state.dataForm.videoId} />
-                            </Col>
+                        <Form.Group as={Col}>
+                            <Form.Label>Video Id</Form.Label>
+                            <Form.Control onChange={this.handleChange} type="text" name="videoId" value={this.state.dataForm.videoId} />
                         </Form.Group>
-                        <Form.Group >
-                            <Col>
-                                <Form.Label>Category</Form.Label>
-                                <Form.Control onChange={this.handleChange} type="text" name="category" value={this.state.dataForm.category} />
-                            </Col>
+                        <Form.Group as={Col}>
+                            <Form.Label>Category</Form.Label>
+                            <Form.Control onChange={this.handleChange} type="text" name="category" value={this.state.dataForm.category} />
                         </Form.Group>
                     </Form.Row>
 
